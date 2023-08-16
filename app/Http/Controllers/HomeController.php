@@ -11,7 +11,6 @@ class HomeController extends Controller
         $response = Http::get('https://type.fit/api/quotes');
         $quotes = $response->json();
 
-        // Get any random quotes- completed
         $firstQuote = $quotes[array_rand($quotes)];
 
 
@@ -19,7 +18,7 @@ class HomeController extends Controller
         $author = $firstQuote["author"];
         $res = str_replace("type.fit","", $author);
 
-        // Remove type.fit from the author name
+
 
         return view("welcome", [
             'quote' => $text,
